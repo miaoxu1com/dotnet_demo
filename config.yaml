@@ -1,0 +1,9 @@
+Fields:
+  - Name: test_case
+    Label: 测试案例
+  - Name: test_id
+    Label: 测试编号
+  - Name: priority
+    Label: 优先级
+  - Name: author
+    Label: 编写人

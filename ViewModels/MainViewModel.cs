@@ -154,25 +154,32 @@ public class MainViewModel : ViewModelBase
                 col = 1;
                 foreach (var template in Config.Templates)
                 {
-                    string value;
-                    if (template == "测试用例名称")
+                    // string value;
+                    // if (template == "测试用例名称")
+                    // {
+                    //     value = testCase.Title;
+                    // }
+                    // else if (template == "执行步骤")
+                    // {
+                    //     value = testCase.Steps;
+                    // }
+                    // else if (template == "预期结果")
+                    // {
+                    //     value = testCase.ExpectedResult;
+                    // }
+                    // else
+                    // {
+                    //     // 对于其他列，使用模板名称作为key来获取对应的值
+                    //     value = testCase.AdditionalFields.GetValueOrDefault(template, string.Empty);
+                    //     Console.WriteLine($"尝试获取字段 {template} 的值: {value}");
+                    // }
+                    string value = template switch
                     {
-                        value = testCase.Title;
-                    }
-                    else if (template == "执行步骤")
-                    {
-                        value = testCase.Steps;
-                    }
-                    else if (template == "预期结果")
-                    {
-                        value = testCase.ExpectedResult;
-                    }
-                    else
-                    {
-                        // 对于其他列，使用模板名称作为key来获取对应的值
-                        value = testCase.AdditionalFields.GetValueOrDefault(template, string.Empty);
-                        Console.WriteLine($"尝试获取字段 {template} 的值: {value}");
-                    }
+                        "测试用例名称" => testCase.Title,
+                        "执行步骤" => testCase.Steps,
+                        "预期结果" => testCase.ExpectedResult,
+                        _ => testCase.AdditionalFields.GetValueOrDefault(template, string.Empty)
+                    };
                     worksheet.Cell(row, col).Value = value;
                     col++;
                 }

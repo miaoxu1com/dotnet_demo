@@ -19,11 +19,6 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        // Create Excel template if it doesn't exist
-        if (!File.Exists("template.xlsx"))
-        {
-            ExcelTemplateCreator.CreateTemplate();
-        }
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {

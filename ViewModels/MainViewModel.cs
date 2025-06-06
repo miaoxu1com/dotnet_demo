@@ -19,13 +19,17 @@ public class MainViewModel : ViewModelBase
     private string _xmindFilePath = string.Empty;
     private Dictionary<string, string> _fieldValues;
     private string _selectedFilePath = string.Empty;
-
     private string _outFilePath = string.Empty;
+    private readonly XMindService _xmindService;
 
     public MainViewModel()
     {
+        // 设置控制台输出编码为 UTF-8
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        
         LoadConfig();
         _fieldValues = new Dictionary<string, string>();
+        _xmindService = new XMindService();
         
         // Initialize commands
         SelectXmindFileCommand = new RelayCommand(SelectXmindFile);
@@ -40,7 +44,15 @@ public class MainViewModel : ViewModelBase
         // Initialize field values with empty strings
         foreach (var field in Config.Fields)
         {
-            FieldValues[field.Name] = string.Empty;
+            FieldValues[field.Label] = field.Name;
+            field.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == nameof(FieldConfig.Name) && s is FieldConfig fieldConfig)
+                {
+                    FieldValues[fieldConfig.Label] = fieldConfig.Name;
+                }
+            };
+            Console.WriteLine($"初始化字段: {field.Label}");
         }
     }
 
@@ -67,11 +79,13 @@ public class MainViewModel : ViewModelBase
         get => _selectedFilePath;
         set => SetProperty(ref _selectedFilePath, value);
     }
+
     public string OutFilePath
     {
         get => _outFilePath;
         set => SetProperty(ref _outFilePath, value);
     }
+
     public IRelayCommand SelectXmindFileCommand { get; }
     public IRelayCommand GenerateExcelCommand { get; }
 
@@ -103,13 +117,6 @@ public class MainViewModel : ViewModelBase
     {
         try
         {
-            // Check if template file exists
-            if (!File.Exists("template.xlsx"))
-            {
-                await ShowMessageBox("错误", "模板文件未找到！请确保template.xlsx存在于应用程序目录中.");
-                return;
-            }
-
             // Check if XMind file is selected
             if (string.IsNullOrEmpty(SelectedFilePath))
             {
@@ -117,24 +124,59 @@ public class MainViewModel : ViewModelBase
                 return;
             }
             
-            // Load the template workbook
-            using var workbook = new XLWorkbook("template.xlsx");
-            var worksheet = workbook.Worksheet(1);
-            
-            // Fill in the header row with field labels
-            int col = 1;
-            foreach (var field in Config.Fields)
+            // 打印当前字段值
+            Console.WriteLine("当前字段值:");
+            foreach (var field in FieldValues)
             {
-                worksheet.Cell(1, col).Value = field.Label;
+                Console.WriteLine($"字段: {field.Key}, 值: {field.Value}");
+            }
+            
+            // Parse XMind file
+            var testCases = await _xmindService.ParseXMindFileAsync(SelectedFilePath, FieldValues);
+            
+            // Create a new workbook
+            using var workbook = new XLWorkbook();
+            var worksheet = workbook.Worksheets.Add("Sheet1");
+            
+            // Fill in the header row with templates from config
+            int col = 1;
+            foreach (var template in Config.Templates)
+            {
+                worksheet.Cell(1, col).Value = template;
+                Console.WriteLine($"添加表头: {template}");
                 col++;
             }
             
-            // Fill in the data from field values
-            col = 1;
-            foreach (var field in Config.Fields)
+            // Fill in the test cases
+            int row = 2;
+            foreach (var testCase in testCases)
             {
-                worksheet.Cell(2, col).Value = FieldValues[field.Name] ?? string.Empty;
-                col++;
+                col = 1;
+                foreach (var template in Config.Templates)
+                {
+                    string value;
+                    if (template == "测试用例名称")
+                    {
+                        value = testCase.Title;
+                    }
+                    else if (template == "执行步骤")
+                    {
+                        value = testCase.Steps;
+                    }
+                    else if (template == "预期结果")
+                    {
+                        value = testCase.ExpectedResult;
+                    }
+                    else
+                    {
+                        // 对于其他列，使用模板名称作为key来获取对应的值
+                        value = testCase.AdditionalFields.GetValueOrDefault(template, string.Empty);
+                        Console.WriteLine($"尝试获取字段 {template} 的值: {value}");
+                    }
+                    worksheet.Cell(row, col).Value = value;
+                    col++;
+                }
+                row++;
             }
             
             // Generate output file path
@@ -145,8 +187,7 @@ public class MainViewModel : ViewModelBase
             // Save the output file
             workbook.SaveAs(OutFilePath);
             
-            // Show completion message
-            //await ShowMessageBox("成功", $"Excel文件生成成功！保存路径：{_outFilePath}");
+            await ShowMessageBox("成功", $"Excel文件生成成功！保存路径：{OutFilePath}");
         }
         catch (Exception ex)
         {

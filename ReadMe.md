@@ -29,3 +29,23 @@ config.yaml - 配置文件
 
 XmindToExcelConverter.csproj - 项目文件
 global.json - .NET SDK 配置
+
+那些地方可以进行优化  
+
+提升 
+
+xmind解析速度 
+
+excel 生成速度  
+
+优化内存占用  
+
+提升cpu利用率  
+
+提升程序响应速度 
+
+兼顾这几个方面  
+
+同时保持代码的可扩展性 
+
+可维护性

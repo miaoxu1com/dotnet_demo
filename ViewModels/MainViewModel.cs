@@ -10,6 +10,13 @@ using ClosedXML.Excel;
 using Avalonia.Platform.Storage;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Linq;
+using System.Collections.Concurrent;
+using System.Threading.Tasks;
+using System.Threading.Tasks;
+using System.Threading.Tasks;
 
 namespace XmindToExcelConverter.ViewModels;
 
@@ -117,82 +124,17 @@ public class MainViewModel : ViewModelBase
     {
         try
         {
-            // Check if XMind file is selected
             if (string.IsNullOrEmpty(SelectedFilePath))
             {
                 await ShowMessageBox("提示", "请先选择XMind文件！");
                 return;
             }
             
-            // 打印当前字段值
-            Console.WriteLine("当前字段值:");
-            foreach (var field in FieldValues)
-            {
-                Console.WriteLine($"字段: {field.Key}, 值: {field.Value}");
-            }
-            
             // Parse XMind file
             var testCases = await _xmindService.ParseXMindFileAsync(SelectedFilePath, FieldValues);
             
-            // Create a new workbook
-            using var workbook = new XLWorkbook();
-            var worksheet = workbook.Worksheets.Add("Sheet1");
-            
-            // Fill in the header row with templates from config
-            int col = 1;
-            foreach (var template in Config.Templates)
-            {
-                worksheet.Cell(1, col).Value = template;
-                Console.WriteLine($"添加表头: {template}");
-                col++;
-            }
-            
-            // Fill in the test cases
-            int row = 2;
-            foreach (var testCase in testCases)
-            {
-                col = 1;
-                foreach (var template in Config.Templates)
-                {
-                    // string value;
-                    // if (template == "测试用例名称")
-                    // {
-                    //     value = testCase.Title;
-                    // }
-                    // else if (template == "执行步骤")
-                    // {
-                    //     value = testCase.Steps;
-                    // }
-                    // else if (template == "预期结果")
-                    // {
-                    //     value = testCase.ExpectedResult;
-                    // }
-                    // else
-                    // {
-                    //     // 对于其他列，使用模板名称作为key来获取对应的值
-                    //     value = testCase.AdditionalFields.GetValueOrDefault(template, string.Empty);
-                    //     Console.WriteLine($"尝试获取字段 {template} 的值: {value}");
-                    // }
-                    string value = template switch
-                    {
-                        "测试用例名称" => testCase.Title,
-                        "执行步骤" => testCase.Steps,
-                        "预期结果" => testCase.ExpectedResult,
-                        _ => testCase.AdditionalFields.GetValueOrDefault(template, string.Empty)
-                    };
-                    worksheet.Cell(row, col).Value = value;
-                    col++;
-                }
-                row++;
-            }
-            
-            // Generate output file path
-            string directory = Path.GetDirectoryName(SelectedFilePath) ?? string.Empty;
-            string fileName = Path.GetFileNameWithoutExtension(SelectedFilePath);
-            OutFilePath = Path.Combine(directory, $"{fileName}.xlsx");
-            
-            // Save the output file
-            workbook.SaveAs(OutFilePath);
+            // 使用并行处理生成Excel
+            await Task.Run(() => GenerateExcelInParallel(testCases));
             
             await ShowMessageBox("成功", $"Excel文件生成成功！保存路径：{OutFilePath}");
         }
@@ -200,6 +142,65 @@ public class MainViewModel : ViewModelBase
         {
             await ShowMessageBox("错误", $"生成Excel文件时发生错误：{ex.Message}");
         }
+    }
+
+    private void GenerateExcelInParallel(List<TestCase> testCases)
+    {
+        // 创建Excel工作簿
+        using var workbook = new XLWorkbook();
+        var worksheet = workbook.Worksheets.Add("Sheet1");
+        
+        // 写入表头
+        for (int i = 0; i < Config.Templates.Count; i++)
+        {
+            var cell = worksheet.Cell(1, i + 1);
+            cell.Value = Config.Templates[i];
+            cell.Style.Font.Bold = true;
+            cell.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+        }
+        
+        // 准备数据
+        var data = new object[testCases.Count, Config.Templates.Count];
+        
+        // 并行处理数据准备
+        Parallel.For(0, testCases.Count, i =>
+        {
+            var testCase = testCases[i];
+            for (int j = 0; j < Config.Templates.Count; j++)
+            {
+                string template = Config.Templates[j];
+                data[i, j] = template switch
+                {
+                    "测试用例名称" => testCase.Title,
+                    "执行步骤" => testCase.Steps,
+                    "预期结果" => testCase.ExpectedResult,
+                    _ => testCase.AdditionalFields.GetValueOrDefault(template, string.Empty)
+                };
+            }
+        });
+        
+        // 写入数据
+        for (int i = 0; i < testCases.Count; i++)
+        {
+            for (int j = 0; j < Config.Templates.Count; j++)
+            {
+                worksheet.Cell(i + 2, j + 1).Value = data[i, j];
+            }
+        }
+        
+        // 设置列宽
+        for (int i = 1; i <= Config.Templates.Count; i++)
+        {
+            worksheet.Column(i).Width = 20;
+        }
+        
+        // 生成输出文件路径
+        string directory = Path.GetDirectoryName(SelectedFilePath) ?? string.Empty;
+        string fileName = Path.GetFileNameWithoutExtension(SelectedFilePath);
+        OutFilePath = Path.Combine(directory, $"{fileName}.xlsx");
+        
+        // 保存文件
+        workbook.SaveAs(OutFilePath);
     }
 
     private async Task ShowMessageBox(string title, string message)

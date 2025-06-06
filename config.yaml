@@ -9,6 +9,8 @@ Fields:
     Label: 优先级
   - Name: AAA
     Label: 节点路径
+  - Name: 'Target-LPS'
+    Label: 应用
 Templates:
   - STORY编号
   - 测试用例编号

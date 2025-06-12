@@ -2,8 +2,7 @@
 
 **技术栈**：   
 
-- 语言：
-- C# 10+ / .NET 6+  
+- 语言：C# 10+ / .NET 6+  
 - 框架：avalonia   
 - 工具：JetBrains Rider 
 

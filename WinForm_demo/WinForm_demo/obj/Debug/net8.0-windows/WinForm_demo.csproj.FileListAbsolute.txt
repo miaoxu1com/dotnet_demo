@@ -1,0 +1,17 @@
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\bin\Debug\net8.0-windows\WinForm_demo.exe
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\bin\Debug\net8.0-windows\WinForm_demo.deps.json
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\bin\Debug\net8.0-windows\WinForm_demo.runtimeconfig.json
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\bin\Debug\net8.0-windows\WinForm_demo.dll
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\bin\Debug\net8.0-windows\WinForm_demo.pdb
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.Form1.resources
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.csproj.GenerateResource.cache
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.AssemblyInfoInputs.cache
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.AssemblyInfo.cs
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.csproj.CoreCompileInputs.cache
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.sourcelink.json
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.dll
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\refint\WinForm_demo.dll
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.pdb
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.genruntimeconfig.cache
+D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\ref\WinForm_demo.dll

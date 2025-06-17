@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\dotnet_demo\\WinForm_demo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5F074BE8-6737-479B-8189-D7EDB4A10904}|WinForm_demo\\WinForm_demo.csproj|d:\\projects\\dotnet_demo\\winform_demo\\winform_demo\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5F074BE8-6737-479B-8189-D7EDB4A10904}|WinForm_demo\\WinForm_demo.csproj|solutionrelative:winform_demo\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F074BE8-6737-479B-8189-D7EDB4A10904}|WinForm_demo\\WinForm_demo.csproj|d:\\projects\\dotnet_demo\\winform_demo\\winform_demo\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F074BE8-6737-479B-8189-D7EDB4A10904}|WinForm_demo\\WinForm_demo.csproj|solutionrelative:winform_demo\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\Projects\\dotnet_demo\\WinForm_demo\\WinForm_demo\\Form1.cs",
+              "RelativeDocumentMoniker": "WinForm_demo\\Form1.cs",
+              "ToolTip": "D:\\Projects\\dotnet_demo\\WinForm_demo\\WinForm_demo\\Form1.cs",
+              "RelativeToolTip": "WinForm_demo\\Form1.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAIA1wBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T12:40:59.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "D:\\Projects\\dotnet_demo\\WinForm_demo\\WinForm_demo\\Form1.cs",
+              "RelativeDocumentMoniker": "WinForm_demo\\Form1.cs",
+              "ToolTip": "D:\\Projects\\dotnet_demo\\WinForm_demo\\WinForm_demo\\Form1.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "WinForm_demo\\Form1.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T12:33:12.39Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

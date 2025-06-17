@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="./EphedrineSDK.js"></script>
+</head>
+
+<body>
+    <Button onclick="startService();">Start User Service</Button>
+    <Button onclick="startServiceAdmin();">Start Admin Service</Button>
+    <Button onclick="download()">Download FFMPEG</Button>
+    <Button onclick="downloadRun()">Download SHO And Run</Button>
+    <Button onclick="install()">Install FFMPEG</Button>
+    <Button onclick="kill()">Kill GithubDesktop</Button>
+    <Button onclick="md5()">Self Verify MD5</Button>
+    <Button onclick="sha384()">Self Verify SHA384</Button>
+    <Button onclick="run()">Run Another Installe Adminr</Button>
+    <Button onclick="runzip()">Run Another Installer In Unzip Mode</Button>
+    <Button onclick="deleteFile()">Delete PDB File</Button>
+    <Button onclick="select()">Select File</Button>
+    <Button onclick="selectfolder()">Select Folder</Button>
+    <Button onclick="list()">List Current Path</Button>
+    <Button onclick="listSelect()">List Selected Path</Button>
+    <Button onclick="steamCon()">Launch Steam Console</Button>
+    <Button onclick="install7z()">Install 7Zip Plugin And Benchmark</Button>
+    <Button onclick="manage()">Manage Plugins</Button>
+    <script>
+        const startService = async() => {
+            await Ephedrine.Actions.StartService(false);
+        }
+        const startServiceAdmin = async() => {
+            await Ephedrine.Actions.StartService(true);
+        }
+        const download = async() => {
+            await Ephedrine.Actions.Install.save("https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n5.0-latest-win64-lgpl-shared-5.0.zip", "ffmpeg.zip")
+        }
+        const downloadRun = async() => {
+            await Ephedrine.Actions.Install.run("https://github.com/GlacierLab/SuperHexagonOptimize/releases/download/1.0.2/SuperHexagonOptimize1.0.2.exe", "SHO.exe", false)
+        }
+        const install = async() => {
+            await Ephedrine.Actions.Install.zip("https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n5.0-latest-win64-lgpl-shared-5.0.zip", "Here")
+        }
+        const kill = async() => {
+            await Ephedrine.Actions.KillProcess("GithubDesktop");
+        }
+        const md5 = async() => {
+            await Ephedrine.Actions.Verify("MD5", "WebModInstaller.exe")
+        }
+        const sha384 = async() => {
+            await Ephedrine.Actions.Verify("SHA384", "WebModInstaller.exe")
+        }
+        const run = async() => {
+            await Ephedrine.Actions.Run("WebModInstaller.exe", null, true)
+        }
+        const runzip = async() => {
+            await Ephedrine.Actions.Run("WebModInstaller.exe", "--unzip")
+        }
+        const deleteFile = async() => {
+            await Ephedrine.Actions.Delete("WebModInstaller.pdb")
+        }
+        const select = async() => {
+            await Ephedrine.Actions.Select(false)
+        }
+        const selectfolder = async() => {
+            await Ephedrine.Actions.Select(true)
+        }
+        const list = async() => {
+            await Ephedrine.Actions.List()
+        }
+        const listSelect = async() => {
+            await Ephedrine.Actions.List((await Ephedrine.Actions.Select(true)).result)
+        }
+        const steamCon = async() => {
+            await Ephedrine.Actions.Run("steam://open/console", null, null, true)
+        }
+        const install7z = async()=>{
+            await Ephedrine.Actions.Plugin("7Zip","7za.exe","b",false,false)
+        }
+        const manage=async()=>{
+            await Ephedrine.Actions.Run("WebModInstaller.exe", "--plugins")
+        }
+    </script>
+</body>

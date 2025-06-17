@@ -15,3 +15,6 @@ D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\refin
 D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.pdb
 D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.genruntimeconfig.cache
 D:\Projects\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\ref\WinForm_demo.dll
+D:\DemoWorkSpace\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.dll
+D:\DemoWorkSpace\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\refint\WinForm_demo.dll
+D:\DemoWorkSpace\dotnet_demo\WinForm_demo\WinForm_demo\obj\Debug\net8.0-windows\WinForm_demo.pdb

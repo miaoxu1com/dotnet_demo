@@ -1,3 +1,7 @@
+.Net项目迁移后，需要重新创建和WpfApp1.csproj文件项目版本相同的.Net项目生成对应版本的dotnet\shared\Microsoft.NETCore.App共享库文件，会生成对应版本的运行时，如果有依赖还需安装依赖，然后重新打开迁移后的项目才能正常运行
+
+
+
 win10系统上WPF程序效果图：
 
 ![image-20250617211723013](assets/image-20250617211723013.png)

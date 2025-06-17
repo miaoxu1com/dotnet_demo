@@ -1,32 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\dotnet_demo\\WinForm_demo\\WinForm_demo\\WinForm_demo.csproj": {}
+    "D:\\DemoWorkSpace\\dotnet_demo\\WinForm_demo\\WinForm_demo\\WinForm_demo.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\dotnet_demo\\WinForm_demo\\WinForm_demo\\WinForm_demo.csproj": {
+    "D:\\DemoWorkSpace\\dotnet_demo\\WinForm_demo\\WinForm_demo\\WinForm_demo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\dotnet_demo\\WinForm_demo\\WinForm_demo\\WinForm_demo.csproj",
+        "projectUniqueName": "D:\\DemoWorkSpace\\dotnet_demo\\WinForm_demo\\WinForm_demo\\WinForm_demo.csproj",
         "projectName": "WinForm_demo",
-        "projectPath": "D:\\Projects\\dotnet_demo\\WinForm_demo\\WinForm_demo\\WinForm_demo.csproj",
-        "packagesPath": "C:\\Users\\miaoxu-jwk\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\dotnet_demo\\WinForm_demo\\WinForm_demo\\obj\\",
+        "projectPath": "D:\\DemoWorkSpace\\dotnet_demo\\WinForm_demo\\WinForm_demo\\WinForm_demo.csproj",
+        "packagesPath": "E:\\Develop\\VisualStudio\\PackageCache",
+        "outputPath": "D:\\DemoWorkSpace\\dotnet_demo\\WinForm_demo\\WinForm_demo\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\miaoxu-jwk\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\mx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "E:\\Develop\\VisualStudio\\SDk\\NuGetPackages\\": {},
+          "https://mirrors.cloud.tencent.com/nuget/": {},
+          "https://repo.huaweicloud.com/repository/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
@@ -68,7 +65,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

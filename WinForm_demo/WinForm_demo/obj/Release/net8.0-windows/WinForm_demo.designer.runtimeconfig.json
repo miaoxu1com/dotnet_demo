@@ -12,9 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\miaoxu-jwk\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\miaoxu-jwk\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      "C:\\Users\\mx\\.dotnet\\store\\|arch|\\|tfm|",
+      "E:\\Develop\\VisualStudio\\PackageCache"
     ],
     "configProperties": {
       "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,

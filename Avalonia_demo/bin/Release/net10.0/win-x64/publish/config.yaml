@@ -1,0 +1,28 @@
+Fields:
+  - Name: 功能测试
+    Label: 类型
+  - Name: 苗栩
+    Label: 作者
+  - Name: '20250410'
+    Label: 标签
+  - Name: '中'
+    Label: 优先级
+  - Name: AAA
+    Label: 节点路径
+  - Name: 'Target-LPS'
+    Label: 应用
+Templates:
+  - STORY编号
+  - 测试用例编号
+  - 节点路径
+  - 测试用例名称
+  - 摘要
+  - 前置条件
+  - 执行步骤
+  - 预期结果
+  - 实际结果
+  - 优先级
+  - 作者
+  - 类型
+  - 应用
+  - 标签

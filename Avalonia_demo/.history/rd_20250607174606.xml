@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Directives>
+  <Application>
+    <Assembly Name="XmindToExcelConverter">
+      <Type Name="XmindToExcelConverter.App" Dynamic="Required All" />
+      <Type Name="XmindToExcelConverter.ViewModels.MainWindowViewModel" Dynamic="Required All" />
+      <Type Name="XmindToExcelConverter.Views.MainWindow" Dynamic="Required All" />
+    </Assembly>
+    <Assembly Name="Avalonia.Controls">
+      <Type Name="Avalonia.Controls.Window" Dynamic="Required All" />
+      <Type Name="Avalonia.Controls.Button" Dynamic="Required All" />
+      <Type Name="Avalonia.Controls.TextBox" Dynamic="Required All" />
+      <Type Name="Avalonia.Controls.ComboBox" Dynamic="Required All" />
+      <Type Name="Avalonia.Controls.ListBox" Dynamic="Required All" />
+    </Assembly>
+    <Assembly Name="Avalonia.Themes.Fluent">
+      <Type Name="Avalonia.Themes.Fluent.FluentTheme" Dynamic="Required All" />
+    </Assembly>
+    <Assembly Name="Avalonia.Fonts.Inter">
+      <Type Name="Avalonia.Fonts.Inter.InterFont" Dynamic="Required All" />
+    </Assembly>
+  </Application>
+</Directives> 

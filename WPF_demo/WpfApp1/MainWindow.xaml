@@ -1,0 +1,37 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="Auto" Width="Auto" MinWidth="50" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    <Grid>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="50" MaxWidth="80"  Width="Auto"/>
+                <ColumnDefinition Width="*" MinWidth="300"  MaxWidth="300"/>
+                <ColumnDefinition Width="Auto"/>
+                <!-- 新增一列用于按钮布局 -->
+            </Grid.ColumnDefinitions>
+            <Label FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center">用户名：</Label>
+            <TextBox FontSize="18" Name="User" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,0,10,0"></TextBox>
+            
+            <Label FontSize="18" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"> 密码：</Label>
+            <TextBox FontSize="18" Name="Passwd" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,0,10,0"></TextBox>
+            <!-- 按钮行 -->
+            <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" 
+                        Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="登录" MinWidth="100" Width="Auto" FontSize="18" Margin="0,0,100,0">登录</Button>
+                <Button Name="确定" MinWidth="100" Width="Auto" FontSize="18">确定</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

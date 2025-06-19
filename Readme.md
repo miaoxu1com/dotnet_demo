@@ -14,3 +14,5 @@ git add .gitignore
 git commit -m "忽略所有 exe 文件
 git push
 ```
+##### 编译加速
+https://www.webkt.com/article/9297

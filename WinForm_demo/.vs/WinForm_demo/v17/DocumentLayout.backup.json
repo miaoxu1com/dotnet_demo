@@ -40,14 +40,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [\u8BBE\u8BA1]",
+              "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\DemoWorkSpace\\dotnet_demo\\WinForm_demo\\WinForm_demo\\Form1.cs",
               "RelativeDocumentMoniker": "WinForm_demo\\Form1.cs",
-              "ToolTip": "D:\\DemoWorkSpace\\dotnet_demo\\WinForm_demo\\WinForm_demo\\Form1.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "WinForm_demo\\Form1.cs [\u8BBE\u8BA1]",
+              "ToolTip": "D:\\DemoWorkSpace\\dotnet_demo\\WinForm_demo\\WinForm_demo\\Form1.cs [Design]",
+              "RelativeToolTip": "WinForm_demo\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-17T12:33:12.39Z",
-              "EditorCaption": " [\u8BBE\u8BA1]"
+              "EditorCaption": " [Design]"
             }
           ]
         }

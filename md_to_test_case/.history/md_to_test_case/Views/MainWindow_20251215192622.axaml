@@ -1,0 +1,58 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:md_to_test_case.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="md_to_test_case.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="md_to_test_case"
+        Width="432" Height="150"
+        SystemDecorations="None">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <!-- 自定义标题栏 + 内容区 -->
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+
+      <!-- 标题栏：可拖动，包含最小化和关闭按钮 -->
+      <Border Background="#FF2D2D30" Grid.Row="0" Height="30">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+          </Grid.ColumnDefinitions>
+
+          <TextBlock Text="md_to_test_case" VerticalAlignment="Center" Margin="8,0" Foreground="White"/>
+
+          <StackPanel Orientation="Horizontal" Grid.Column="1">
+            <Button Name="MinButton" Click="MinButton_Click" Content="—" Width="40" Height="30"/>
+            <Button Name="CloseButton" Click="CloseButton_Click" Content="✕" Width="40" Height="30"/>
+          </StackPanel>
+
+          <!-- 覆盖整个标题栏以接收拖动事件 -->
+          <Border Background="Transparent" PointerPressed="TitleBar_PointerPressed"/>
+        </Grid>
+      </Border>
+
+      <!-- 内容区：外实线 + 内虚线，居中（参考附件风格） -->
+      <Grid Grid.Row="1">
+        <Border Width="360" Height="160" HorizontalAlignment="Center" VerticalAlignment="Center"
+                CornerRadius="10" BorderBrush="#FF333333" BorderThickness="3" Background="Transparent">
+          <Grid>
+            <Rectangle Margin="8" Fill="Transparent" Stroke="Gray" StrokeThickness="2" StrokeDashArray="6,3" RadiusX="6" RadiusY="6"/>
+            <TextBlock Text="这是矩形区域" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
+          </Grid>
+        </Border>
+      </Grid>
+    </Grid>
+</Window>

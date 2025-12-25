@@ -1,0 +1,142 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
+        xmlns:vm="using:md_to_test_case.ViewModels"
+        x:Class="md_to_test_case.Views.MainWindow"
+        x:Name="Root"
+        x:DataType="vm:MainWindowViewModel"
+        Title=""
+          Width="432" Height="150"
+          MinWidth="432" MaxWidth="432" MinHeight="150" MaxHeight="150"
+          CanResize="False"
+          ShowInTaskbar="True"
+          WindowStartupLocation="CenterScreen"
+          SystemDecorations="None"
+          ExtendClientAreaToDecorationsHint="True"
+          ExtendClientAreaChromeHints="NoChrome"
+          ExtendClientAreaTitleBarHeightHint="-1"
+          DragDrop.AllowDrop="True"
+        >
+
+
+
+    <Window.Styles>
+        <Style Selector="Rectangle.interactive-border">
+            <Setter Property="Stroke" Value="Gray"/>
+            <Setter Property="StrokeThickness" Value="2"/>
+            <Setter Property="StrokeDashArray" Value="6,3"/>
+            <Setter Property="Fill" Value="Transparent"/>
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Stroke" Duration="0:0:0.15"/>
+                </Transitions>
+            </Setter>
+        </Style>
+        
+        <Style Selector="Rectangle.interactive-border:pointerover">
+            <Setter Property="Stroke" Value="LightBlue"/>
+        </Style>
+        
+        <!-- 自定义标题栏样式 -->
+        <Style Selector="Button.title-button">
+            <Setter Property="Width" Value="46"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="#666666"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        
+        <Style Selector="Button.title-button:pointerover">
+            <Setter Property="Background" Value="#E5E5E5"/>
+        </Style>
+        
+        <Style Selector="Button.title-button.close:pointerover">
+            <Setter Property="Background" Value="#E81123"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        
+        
+    </Window.Styles>
+
+    <!-- 自定义标题栏 + 内容区 -->
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="32"/>  <!-- 标题栏高度 -->
+        <RowDefinition Height="*"/>   <!-- 内容区域 -->
+      </Grid.RowDefinitions>
+      
+      <!-- 自定义标题栏 -->
+      <Grid Grid.Row="0" Background="White">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>      <!-- 拖拽区域 -->
+          <ColumnDefinition Width="Auto"/>   <!-- 按钮区域 -->
+        </Grid.ColumnDefinitions>
+        
+        <!-- 标题栏拖拽区域 -->
+        <Border Grid.Column="0" 
+                Background="Transparent" 
+                PointerPressed="TitleBar_PointerPressed"/>
+        
+        <!-- 窗口控制按钮 -->
+        <StackPanel Grid.Column="1" 
+                    Orientation="Horizontal">
+          <Button Classes="title-button" 
+                  Content="&#xE921;" 
+                  Click="MinButton_Click" 
+                  ToolTip.Tip="最小化"/>
+          <Button Classes="title-button close" 
+                  Content="&#xE8BB;" 
+                  Click="CloseButton_Click" 
+                  ToolTip.Tip="关闭"/>
+        </StackPanel>
+      </Grid>
+      
+      <!-- 内容区：矩形与窗口内容边界保持 5px 间距 -->
+      <Grid Grid.Row="1">
+        <!-- 边框矩形 - 独立层级，不受内容影响 -->
+        <Rectangle
+          Margin="5"
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch"
+          Classes="interactive-border"
+          IsHitTestVisible="True"/>
+
+        <!-- 内容区域：图标 + 文字 -->
+        <Grid Margin="15" 
+              HorizontalAlignment="Center" 
+              VerticalAlignment="Center"
+              IsHitTestVisible="True"
+              DragDrop.AllowDrop="True"
+              Background="Transparent">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>  <!-- 图标行 -->
+            <RowDefinition Height="Auto"/>  <!-- 文字行 -->
+          </Grid.RowDefinitions>
+          
+          <!-- FontAwesome 云上传图标 -->
+          <iconPacks:PackIconFontAwesome Grid.Row="0"
+                                         Kind="CloudArrowUpSolid" 
+                                         Width="48" 
+                                         Height="48"
+                                         Foreground="#9ca3af"
+                                         HorizontalAlignment="Center"
+                                         Margin="0,0,0,8"/>
+          
+          <!-- 拖拽上传文字 -->
+          <TextBlock Grid.Row="1"
+                     Text="{Binding DisplayText}"
+                     FontSize="20"
+                     Foreground="#808080"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     TextAlignment="Center"
+                     LetterSpacing="2"
+                     DragDrop.AllowDrop="True"/>
+        </Grid>
+      </Grid>
+    </Grid>
+</Window>

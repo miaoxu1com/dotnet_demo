@@ -1,9 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <PublishAot>true</PublishAot>
     <TrimMode>full</TrimMode>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <IlcGenerateStackTraceData>false</IlcGenerateStackTraceData>
     <IlcOptimizationPreference>Size</IlcOptimizationPreference>
     <BuiltInComInteropSupport>false</BuiltInComInteropSupport>
-    <IlcFoldIdenticalMethodBodies>true</IlcFoldIdenticalMethodBodies>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>

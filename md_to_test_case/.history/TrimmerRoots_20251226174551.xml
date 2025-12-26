@@ -1,0 +1,7 @@
+<linker>
+    <assembly fullname="md_to_test_case">
+        <type fullname="md_to_test_case.ViewModels*" preserve="all"/>
+        <type fullname="md_to_test_case.Views*" preserve="all"/>
+        <type fullname="md_to_test_case.Services*" preserve="all"/>
+    </assembly>
+</linker>

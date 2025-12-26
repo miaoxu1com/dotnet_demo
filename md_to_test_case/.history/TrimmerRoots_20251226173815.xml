@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<linker>
+  <assembly fullname="Serilog" />
+  <assembly fullname="Serilog.Sinks.Console" />
+  <assembly fullname="Serilog.Sinks.File" />
+  <assembly fullname="ReactiveUI" />
+  <assembly fullname="SukiUI" />
+  <assembly fullname="Serilog.Sinks.File" />
+</linker>

@@ -1,0 +1,5 @@
+<linker>
+    <assembly fullname="md_to_test_case">
+        <type fullname="md_to_test_case.ViewModels*" preserve="all"/>
+    </assembly>
+</linker>

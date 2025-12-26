@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <PublishAot>true</PublishAot>
     <TrimMode>full</TrimMode>
     <IlcOptimizationPreference>Size</IlcOptimizationPreference>
     <BuiltInComInteropSupport>false</BuiltInComInteropSupport>

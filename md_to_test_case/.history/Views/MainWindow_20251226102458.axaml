@@ -9,7 +9,7 @@
           Width="432" Height="150"
           MinWidth="432" MaxWidth="432" MinHeight="150" MaxHeight="150"
           CanResize="False"
-
+          ShowInTaskbar="True"
           WindowStartupLocation="CenterScreen"
           SystemDecorations="None"
           ExtendClientAreaToDecorationsHint="True"

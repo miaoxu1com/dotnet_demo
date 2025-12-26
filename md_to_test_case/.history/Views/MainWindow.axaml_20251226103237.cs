@@ -1,10 +1,12 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.Media.Imaging;
 using Avalonia;
 using md_to_test_case.ViewModels;
 using System;
 using System.Linq;
+using System.Reflection;
 
 namespace md_to_test_case.Views;
 

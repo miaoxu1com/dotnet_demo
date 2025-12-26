@@ -1,10 +1,12 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.Media.Imaging;
 using Avalonia;
 using md_to_test_case.ViewModels;
 using System;
 using System.Linq;
+using System.Reflection;
 
 namespace md_to_test_case.Views;
 
@@ -16,7 +18,11 @@ public partial class MainWindow : Window
     {
         ViewModel = new MainWindowViewModel();
         DataContext = ViewModel;
+
         InitializeComponent();
+
+
+
         // 添加拖拽事件处理（使用路由事件，确保整个窗口都能接收拖拽）
         AddHandler(DragDrop.DropEvent, OnDrop, RoutingStrategies.Bubble);
         AddHandler(DragDrop.DragOverEvent, OnDragOver, RoutingStrategies.Bubble);

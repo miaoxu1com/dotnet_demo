@@ -1,6 +1,5 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
         xmlns:vm="using:md_to_test_case.ViewModels"
         x:Class="md_to_test_case.Views.MainWindow"
         x:Name="Root"
@@ -9,7 +8,7 @@
           Width="432" Height="150"
           MinWidth="432" MaxWidth="432" MinHeight="150" MaxHeight="150"
           CanResize="False"
-
+          ShowInTaskbar="True"
           WindowStartupLocation="CenterScreen"
           SystemDecorations="None"
           ExtendClientAreaToDecorationsHint="True"
@@ -105,29 +104,16 @@
           Classes="interactive-border"
           IsHitTestVisible="True"/>
 
-        <!-- 内容区域：图标 + 文字 -->
+        <!-- 内容区域：文字 -->
         <Grid Margin="15" 
               HorizontalAlignment="Center" 
               VerticalAlignment="Center"
               IsHitTestVisible="True"
               DragDrop.AllowDrop="True"
               Background="Transparent">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>  <!-- 图标行 -->
-            <RowDefinition Height="Auto"/>  <!-- 文字行 -->
-          </Grid.RowDefinitions>
-          
-          <!-- FontAwesome 云上传图标 -->
-          <iconPacks:PackIconFontAwesome Grid.Row="0"
-                                         Kind="CloudArrowUpSolid" 
-                                         Width="48" 
-                                         Height="48"
-                                         Foreground="#9ca3af"
-                                         HorizontalAlignment="Center"
-                                         Margin="0,0,0,8"/>
           
           <!-- 拖拽上传文字 -->
-          <TextBlock Grid.Row="1"
+          <TextBlock
                      Text="{Binding DisplayText}"
                      FontSize="20"
                      Foreground="#808080"
